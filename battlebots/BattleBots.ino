@@ -1,8 +1,8 @@
 #include <FastLED.h>
 #include "pitches.h"
 
-int buttonApin = 9;
-int buttonBpin = 10;
+int buttonStartPin = 9;
+int buttonStopPin = 10;
 
 // https://forum.arduino.cc/index.php?topic=424068.0
 unsigned long previousMillis = 0;             // will store last time LED was updated
@@ -22,8 +22,8 @@ uint8_t gHue = 0; // rotating "base color"
 
 void setup()
 {
-    pinMode(buttonApin, INPUT_PULLUP);
-    pinMode(buttonBpin, INPUT_PULLUP);
+    pinMode(buttonStartPin, INPUT_PULLUP);
+    pinMode(buttonStopPin, INPUT_PULLUP);
     Serial.begin(9600);
 
     FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
@@ -35,7 +35,7 @@ void setup()
 void loop()
 {
     //  Serial.println(" Button: " + LOW);
-    if (digitalRead(buttonApin) == LOW)
+    if (digitalRead(buttonStartPin) == LOW)
     {
         Serial.println("Start Sequence.");
         confetti();
@@ -79,7 +79,7 @@ void endTimerSequence()
         FastLED.show();
     }
 
-    if (digitalRead(buttonBpin) == LOW)
+    if (digitalRead(buttonStopPin) == LOW)
     {
         FastLED.clear();
         FastLED.show();
