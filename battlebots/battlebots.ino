@@ -55,6 +55,7 @@ void startBattleSequence()
         tone(8, NOTE_F5, 900);
         FastLED.delay(1000);
 
+        noTone(8);
         FastLED.clear();
         FastLED.delay(200);
         Serial.println("Beep.");
