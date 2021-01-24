@@ -6,15 +6,15 @@ int buttonStopPin = 10;
 
 // https://forum.arduino.cc/index.php?topic=424068.0
 unsigned long previousMillis = 0;             // will store last time LED was updated
-const unsigned long interval = 15UL * 1000UL; // Change the LED every 15 seconds
+const unsigned long interval = 180UL * 1000UL; // Change the LED every 15 seconds
 
 // FastLED
-#define NUM_LEDS 15
-#define DATA_PIN 3
+#define NUM_LEDS 100
+#define DATA_PIN 5
 #define LED_TYPE WS2812B
 #define CLOCK_PIN 13
 #define FRAMES_PER_SECOND 120
-#define BRIGHTNESS 96
+#define BRIGHTNESS 50
 #define COLOR_ORDER GRB
 
 CRGB leds[NUM_LEDS];
