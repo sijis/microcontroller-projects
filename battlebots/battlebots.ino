@@ -1,6 +1,7 @@
 #include <FastLED.h>
 #include "pitches.h"
 
+int buzzerPin = 8;
 int buttonStartPin = 9;
 int buttonStopPin = 10;
 
@@ -34,7 +35,6 @@ void setup()
 
 void loop()
 {
-    //  Serial.println(" Button: " + LOW);
     if (digitalRead(buttonStartPin) == LOW)
     {
         Serial.println("Start Sequence.");
@@ -52,10 +52,10 @@ void startBattleSequence()
     for (int counter = 1; counter <= 3; counter++)
     {
         fill_solid(leds, NUM_LEDS, CRGB::Yellow);
-        tone(8, NOTE_F5, 900);
+        tone(buzzerPin, NOTE_F2, 900);
         FastLED.delay(1000);
 
-        noTone(8);
+        noTone(buzzerPin);
         FastLED.clear();
         FastLED.delay(200);
         Serial.println("Beep.");
@@ -64,7 +64,7 @@ void startBattleSequence()
     delay(200);
     fill_solid(leds, NUM_LEDS, CRGB::Green);
     FastLED.show();
-    tone(8, NOTE_A5, 900);
+    tone(buzzerPin, NOTE_A5, 900);
     Serial.println("Beep!!!");
 }
 
